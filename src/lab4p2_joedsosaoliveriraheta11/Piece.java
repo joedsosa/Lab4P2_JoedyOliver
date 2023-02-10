@@ -5,7 +5,7 @@ public abstract class Piece {
     protected int col,row;
     protected String symbol;
     
-    public abstract boolean movimiento (int row, int col);
+    public abstract boolean movimiento (int newrow, int newcol);
 
     public Piece(int col, int row,String symbol) {
         this.col = col;
@@ -15,7 +15,8 @@ public abstract class Piece {
 
     public Piece() {
     }
-
+     
+    
     @Override
     public  String toString(){
         return this.symbol;
