@@ -9,13 +9,18 @@ package lab4p2_joedsosaoliveriraheta11;
  * @author joeds
  */
 public class Rook extends Piece{
-public Rook(int col, int row) {
-        super(col, row);
+    
+public Rook(int col, int row, char symbol) {
+        super(col, row, symbol);
     }
     @Override
     public boolean movimiento(int row, int col) {
         boolean ValidMove = false;
        return ValidMove;
+    }
+    @Override
+    public String toString() {
+        return  "["+symbol+"]";
     }
     
 }

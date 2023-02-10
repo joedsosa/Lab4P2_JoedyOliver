@@ -9,13 +9,17 @@ package lab4p2_joedsosaoliveriraheta11;
  * @author joeds
  */
 public class Queen extends Piece{
-public Queen(int col, int row) {
-        super(col, row);
+public Queen(int col, int row, char symbol) {
+        super(col, row, symbol);
     }
     @Override
     public boolean movimiento(int row, int col) {
      boolean ValidMove = true;
        return ValidMove;
+    }
+    @Override
+    public String toString() {
+        return  "["+symbol+"]";
     }
     
 }

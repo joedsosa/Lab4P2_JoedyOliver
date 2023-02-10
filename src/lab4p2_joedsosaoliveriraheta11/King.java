@@ -1,16 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lab4p2_joedsosaoliveriraheta11;
 
-/**
- *
- * @author joeds
- */
 public class King extends Piece{
-public King(int col, int row) {
-        super(col, row);
+    
+public King(int col, int row, char symbol) {
+        super(col, row, symbol);
     }
     @Override
     public boolean movimiento(int row, int col) {
@@ -18,4 +12,8 @@ public King(int col, int row) {
        return ValidMove;
     
 }
+    @Override
+    public String toString() {
+        return  "["+symbol+"]";
+    }
 }

@@ -1,24 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package lab4p2_joedsosaoliveriraheta11;
 
-/**
- *
- * @author joeds
- */
 public abstract class Piece {
-    private int col,row;
+    protected int col,row;
+    protected char symbol;
+    
     public abstract boolean movimiento (int row, int col);
 
-    public Piece(int col, int row) {
+    public Piece(int col, int row,char symbol) {
         this.col = col;
         this.row = row;
     }
 
     public Piece() {
     }
+
+    @Override
+    public abstract String toString();
         
     
       
