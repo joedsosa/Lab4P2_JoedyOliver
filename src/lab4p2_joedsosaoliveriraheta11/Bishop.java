@@ -8,7 +8,7 @@ package lab4p2_joedsosaoliveriraheta11;
 
 public class Bishop  extends Piece {
 
-  public Bishop(int col, int row, char symbol) {
+  public Bishop(int col, int row, String symbol) {
         super(col, row, symbol);
     }
 
@@ -18,10 +18,8 @@ public class Bishop  extends Piece {
        return ValidMove;
     }
     
-@Override
-    public String toString() {
-        return  "["+symbol+"]";
-    }
+
+
 
 }
 

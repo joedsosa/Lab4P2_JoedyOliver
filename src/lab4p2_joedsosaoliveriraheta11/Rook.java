@@ -10,7 +10,7 @@ package lab4p2_joedsosaoliveriraheta11;
  */
 public class Rook extends Piece{
     
-public Rook(int col, int row, char symbol) {
+public Rook(int col, int row, String symbol) {
         super(col, row, symbol);
     }
     @Override
@@ -18,9 +18,6 @@ public Rook(int col, int row, char symbol) {
         boolean ValidMove = false;
        return ValidMove;
     }
-    @Override
-    public String toString() {
-        return  "["+symbol+"]";
-    }
+
     
 }

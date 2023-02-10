@@ -15,14 +15,11 @@ public class Pawn extends Piece{
     super();
     }
 
-    public Pawn(int col, int row, char symbol) {
+    public Pawn(int col, int row, String symbol) {
         super(col, row, symbol);
     }
 
-    @Override
-    public String toString() {
-        return  "["+symbol+"]";
-    }
+
     
     
     

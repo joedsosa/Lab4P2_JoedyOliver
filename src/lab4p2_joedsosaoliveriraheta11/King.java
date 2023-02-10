@@ -3,7 +3,7 @@ package lab4p2_joedsosaoliveriraheta11;
 
 public class King extends Piece{
     
-public King(int col, int row, char symbol) {
+public King(int col, int row, String symbol) {
         super(col, row, symbol);
     }
     @Override
@@ -12,8 +12,5 @@ public King(int col, int row, char symbol) {
        return ValidMove;
     
 }
-    @Override
-    public String toString() {
-        return  "["+symbol+"]";
-    }
+
 }

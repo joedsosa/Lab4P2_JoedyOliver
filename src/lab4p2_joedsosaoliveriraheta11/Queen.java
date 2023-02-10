@@ -9,7 +9,7 @@ package lab4p2_joedsosaoliveriraheta11;
  * @author joeds
  */
 public class Queen extends Piece{
-public Queen(int col, int row, char symbol) {
+public Queen(int col, int row, String symbol) {
         super(col, row, symbol);
     }
     @Override
@@ -17,9 +17,6 @@ public Queen(int col, int row, char symbol) {
      boolean ValidMove = true;
        return ValidMove;
     }
-    @Override
-    public String toString() {
-        return  "["+symbol+"]";
-    }
+
     
 }
