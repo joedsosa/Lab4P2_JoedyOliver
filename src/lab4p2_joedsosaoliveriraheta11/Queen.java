@@ -9,7 +9,9 @@ package lab4p2_joedsosaoliveriraheta11;
  * @author joeds
  */
 public class Queen extends Piece{
-
+public Queen(int col, int row) {
+        super(col, row);
+    }
     @Override
     public boolean movimiento(int row, int col) {
      boolean ValidMove = true;
