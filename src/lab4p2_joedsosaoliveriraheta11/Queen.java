@@ -6,13 +6,13 @@ package lab4p2_joedsosaoliveriraheta11;
 
 /**
  *
- * @author Oliver Iraheta
+ * @author joeds
  */
-public class Pawn extends Piece{
+public class Queen extends Piece{
 
     @Override
     public boolean movimiento(int row, int col) {
-       boolean ValidMove = false;
+     boolean ValidMove = true;
        return ValidMove;
     }
     

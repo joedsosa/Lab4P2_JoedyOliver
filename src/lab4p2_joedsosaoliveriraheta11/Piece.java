@@ -8,6 +8,11 @@ package lab4p2_joedsosaoliveriraheta11;
  *
  * @author joeds
  */
-public class Piece {
+public abstract class Piece {
+    private int col,row;
+    public abstract boolean movimiento (int row, int col);
+        
+    
+      
     
 }
