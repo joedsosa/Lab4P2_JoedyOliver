@@ -5,7 +5,7 @@ public abstract class Piece {
     protected int col,row;
     protected String symbol;
     
-    public abstract boolean movimiento (int newrow, int newcol);
+    public abstract boolean movimiento (int newrow, int newcol, Object [][] board);
 
     public Piece(int col, int row,String symbol) {
         this.col = col;

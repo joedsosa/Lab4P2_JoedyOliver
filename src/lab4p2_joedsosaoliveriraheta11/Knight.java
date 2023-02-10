@@ -9,14 +9,17 @@ package lab4p2_joedsosaoliveriraheta11;
  * @author joeds
  */
 public class Knight extends Piece {
-public Knight(int col, int row, String symbol) {
+
+    public Knight(int col, int row, String symbol) {
         super(col, row, symbol);
     }
-    @Override
-    public boolean movimiento(int row, int col) {
-        boolean ValidMove = false;
-        return ValidMove;
-    }
 
+    @Override
+    public boolean movimiento(int newrow, int newcol, Object[][] board) {
+        int rowDiff = Math.abs(newrow - row);
+        int colDiff = Math.abs(newcol - col);
+        return (rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2);
+
+    }
 
 }

@@ -16,7 +16,7 @@ public class Pawn extends Piece{
         super(col, row, symbol);
     }
     @Override
-public boolean movimiento(int newrow, int newcol) {
+public boolean movimiento(int newrow, int newcol,Object [][] board) {
        return (newrow== row+1 && newcol==col);
     }
     
