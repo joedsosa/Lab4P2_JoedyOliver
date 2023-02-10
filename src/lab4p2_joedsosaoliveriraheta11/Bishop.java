@@ -8,6 +8,14 @@ package lab4p2_joedsosaoliveriraheta11;
  *
  * @author joeds
  */
-public class Bishop {
+public class Bishop  extends Piece {
+
+  
+
+    @Override
+    public boolean movimiento(int row, int col) {
+       boolean ValidMove = false;
+       return ValidMove;
+    }
     
 }
