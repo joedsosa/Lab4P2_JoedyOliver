@@ -11,6 +11,14 @@ package lab4p2_joedsosaoliveriraheta11;
 public abstract class Piece {
     private int col,row;
     public abstract boolean movimiento (int row, int col);
+
+    public Piece(int col, int row) {
+        this.col = col;
+        this.row = row;
+    }
+
+    public Piece() {
+    }
         
     
       

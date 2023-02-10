@@ -4,13 +4,13 @@
  */
 package lab4p2_joedsosaoliveriraheta11;
 
-/**
- *
- * @author joeds
- */
+
+
 public class Bishop  extends Piece {
 
-  
+  public Bishop(int col, int row) {
+        super(col, row);
+    }
 
     @Override
     public boolean movimiento(int row, int col) {
@@ -18,4 +18,7 @@ public class Bishop  extends Piece {
        return ValidMove;
     }
     
+
+
 }
+
