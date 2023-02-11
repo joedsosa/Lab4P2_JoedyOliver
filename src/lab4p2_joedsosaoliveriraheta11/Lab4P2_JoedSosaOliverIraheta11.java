@@ -56,7 +56,7 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
         if (pieza == null) {
             System.out.println("No piece found at source coordinates.");
         } else {
-            if (pieza.movimiento(y2, y2)) {
+            if (pieza.movimiento(x2, y2, board)) {
                 board[x2][y2] = pieza;
                 board[x1][y1] = null;
             } else {
