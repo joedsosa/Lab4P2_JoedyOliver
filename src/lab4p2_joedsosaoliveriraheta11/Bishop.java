@@ -13,11 +13,12 @@ public class Bishop extends Piece {
     @Override
     public boolean movimiento(int newrow, int newcol, Object[][] board) {
         return (Math.abs(newrow - row) == Math.abs(newcol - col));
+        
 
     }
     
 
-    public boolean isValidAttack(int row, int col, int newrow, int newcol, Piece[][] board) {
+    public boolean isValidAttack(int row, int col, int newrow, int newcol, Object[][] board) {
         int xDiff = Math.abs(newrow - row);
         int yDiff = Math.abs(newcol - col);
         if (xDiff == yDiff) {
@@ -38,4 +39,6 @@ public class Bishop extends Piece {
         }
         return true;
     }
+
+  
 }

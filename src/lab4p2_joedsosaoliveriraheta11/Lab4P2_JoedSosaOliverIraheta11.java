@@ -1,6 +1,5 @@
 package lab4p2_joedsosaoliveriraheta11;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab4P2_JoedSosaOliverIraheta11 {
@@ -22,6 +21,8 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
             String nameNegro = rm.nextLine();
             boolean y = true;
             while (y) {
+
+                imprimirTablero(board);
                 //false = negro / true = blanco
                 String playername = nameBlanco;
                 if (!player) {
@@ -30,40 +31,49 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
                 } else {
                     player = false;
                 }
-                System.out.println(playername + " Ingrese siguiente movimiento");
-                rm = new Scanner(System.in);
-                String mov = rm.nextLine();
+                boolean u = true;
+                while (u) {
+                    System.out.println(playername + " Ingrese siguiente movimiento");
+                    rm = new Scanner(System.in);
+                    String mov = rm.nextLine();
 
-                if (mov.equalsIgnoreCase("gusbai")) {
-                    //y = false;
-                    break;
+                    if (mov.equalsIgnoreCase("gusbai")) {
+                        //y = false;
+                        break;
+                    }
+                    String pieza = mov.split("\\|")[0];
+                    String ubicacionActual = mov.split("\\|")[1].split("-")[0];
+                    String destino = mov.split("\\|")[1].split("-")[1];
+
+                    int col = getNumber(ubicacionActual.charAt(0));
+                    int row = Integer.parseInt(ubicacionActual.substring(1));
+                    int newcol = getNumber(destino.charAt(0));
+                    int newrow = Integer.parseInt(destino.substring(1));
+
+                    u = hacerMove(row, col, newrow, newcol);
                 }
-                String pieza = mov.split("\\|")[0];
-                String ubicacionActual = mov.split("\\|")[1].split("-")[0];
-                String destino = mov.split("\\|")[1].split("-")[1];
 
-                int col = getNumber(ubicacionActual.charAt(0));
-                int row = ubicacionActual.charAt(1);
-                int newcol = getNumber(destino.charAt(0));
-                int newrow = destino.charAt(1);
-                hacerMove(row, col, newrow,newcol);
             }
         }
     }
 
-    public static void hacerMove(int x1,int y1,int x2,int y2) {
+    public static boolean hacerMove(int x1, int y1, int x2, int y2) {
+        boolean u = false;
         Piece pieza = (Piece) board[x1][y1];
+
         if (pieza == null) {
-            System.out.println("No piece found at source coordinates.");
+            System.out.println("No se encontro pieza en esa ubicacion");
+            u = true;
         } else {
-            if (pieza.movimiento(x2, y2, board)) {
+            if (!pieza.movimiento(x2, y2, board)) {
                 board[x2][y2] = pieza;
                 board[x1][y1] = null;
             } else {
-                System.out.println("Invalid move.");
+                System.out.println("Movimiento No valido");
+                u = true;
             }
         }
-
+        return u;
     }
 
     public static int getNumber(char z) {

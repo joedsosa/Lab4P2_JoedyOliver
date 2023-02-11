@@ -5,7 +5,7 @@ public abstract class Piece {
     protected int col,row;
     protected String symbol;
     
-  
+    public abstract boolean isValidAttack(int row, int col, int newrow, int newcol, Object[][] board);
 
     public abstract boolean movimiento (int newrow, int newcol, Object [][] board);
 
