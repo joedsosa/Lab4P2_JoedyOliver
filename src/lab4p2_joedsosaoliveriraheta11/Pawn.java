@@ -15,7 +15,7 @@ public class Pawn extends Piece{
     public Pawn(int col, int row, String symbol) {
         super(col, row, symbol);
     }
-    @Override
+@Override
 public boolean movimiento(int newrow, int newcol) {
        return (newrow== row+1 && newcol==col);
     }

@@ -6,7 +6,7 @@ public abstract class Piece {
     protected String symbol;
     
     public abstract boolean movimiento (int newrow, int newcol);
-
+    
     public Piece(int col, int row,String symbol) {
         this.col = col;
         this.row = row;

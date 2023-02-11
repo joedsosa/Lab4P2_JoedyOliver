@@ -1,11 +1,13 @@
 package lab4p2_joedsosaoliveriraheta11;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Lab4P2_JoedSosaOliverIraheta11 {
 
     public static Object[][] board = new Object[8][8];
     static Scanner rm = new Scanner(System.in);
+    static boolean player = true;
 
     public static void main(String[] args) {
         boolean x = true;
@@ -20,16 +22,76 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
             String nameNegro = rm.nextLine();
             boolean y = true;
             while (y) {
-                System.out.println(nameBlanco + " Pieza a mover");
+                //false = negro / true = blanco
+                String playername = nameBlanco;
+                if (!player) {
+                    playername = nameNegro;
+                    player = true;
+                } else {
+                    player = false;
+                }
+                System.out.println(playername + " Ingrese siguiente movimiento");
                 rm = new Scanner(System.in);
                 String mov = rm.nextLine();
+
+                if (mov.equalsIgnoreCase("gusbai")) {
+                    //y = false;
+                    break;
+                }
+                String pieza = mov.split("\\|")[0];
+                String ubicacionActual = mov.split("\\|")[1].split("-")[0];
+                String destino = mov.split("\\|")[1].split("-")[1];
+
+                int col = getNumber(ubicacionActual.charAt(0));
+                int row = ubicacionActual.charAt(1);
+                int newcol = getNumber(destino.charAt(0));
+                int newrow = destino.charAt(1);
+                hacerMove(row, col, newrow,newcol);
             }
         }
     }
 
+    public static void hacerMove(int x1,int y1,int x2,int y2) {
+        Piece pieza = (Piece) board[x1][y1];
+        if (pieza == null) {
+            System.out.println("No piece found at source coordinates.");
+        } else {
+            if (pieza.movimiento(y2, y2)) {
+                board[x2][y2] = pieza;
+                board[x1][y1] = null;
+            } else {
+                System.out.println("Invalid move.");
+            }
+        }
+
+    }
+
+    public static int getNumber(char z) {
+        int a = 0;
+        switch (z) {
+            case 'A' ->
+                a = 0;
+            case 'B' ->
+                a = 1;
+            case 'C' ->
+                a = 2;
+            case 'D' ->
+                a = 3;
+            case 'E' ->
+                a = 4;
+            case 'F' ->
+                a = 5;
+            case 'G' ->
+                a = 6;
+            case 'H' ->
+                a = 7;
+        }
+        return a;
+    }
+
     public static void imprimirTablero(Object[][] board) {
 
-        System.out.println("   [A][B][C][D][E][F][G][H]");
+        System.out.println("    A  B  C  D  E  F  G  H");
         for (int i = 0; i < 8; i++) {
             System.out.print(" " + i + " ");
             for (int j = 0; j < 8; j++) {
