@@ -22,4 +22,14 @@ public class Knight extends Piece {
 
     }
 
+    public boolean isValidAttack(int row, int col, int newrow, int newcol, Piece[][] board) {
+        int xDiff = Math.abs(newrow - row);
+        int yDiff = Math.abs(newcol - col);
+        if (xDiff == 2 && yDiff == 1 || xDiff == 1 && yDiff == 2) {
+            return true;
+        }
+        return false;
+    }
 }
+
+

@@ -17,5 +17,10 @@ public Queen(int col, int row, String symbol) {
     return (newrow == row || newcol == col || Math.abs(newrow - row) == Math.abs(newcol - col));
     }
 
-    
+    public boolean isValidAttack(int row, int col, int newrow, int newcol) {
+        if (row == newrow || col == newcol || Math.abs(row - newrow) == Math.abs(col - newcol)) {
+            return true;
+        }
+        return false;
+    }
 }
