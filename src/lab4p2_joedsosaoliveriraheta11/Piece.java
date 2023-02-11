@@ -5,13 +5,10 @@ public abstract class Piece {
     protected int col,row;
     protected String symbol;
     
-<<<<<<< HEAD
-    public abstract boolean movimiento (int newrow, int newcol);
-    
-=======
+  
+
     public abstract boolean movimiento (int newrow, int newcol, Object [][] board);
 
->>>>>>> 18ac7d67b6b5410b72c987f99d4f0c60a3e0d201
     public Piece(int col, int row,String symbol) {
         this.col = col;
         this.row = row;
