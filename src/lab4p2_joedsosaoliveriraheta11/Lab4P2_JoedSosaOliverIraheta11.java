@@ -33,12 +33,13 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
                 }
                 boolean u = true;
                 while (u) {
+                    
                     System.out.println(playername + " Ingrese siguiente movimiento");
                     rm = new Scanner(System.in);
                     String mov = rm.nextLine();
 
                     if (mov.equalsIgnoreCase("gusbai")) {
-                        //y = false;
+                        y = false;
                         break;
                     }
                     String pieza = mov.split("\\|")[0];
@@ -51,10 +52,90 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
                     int newrow = Integer.parseInt(destino.substring(1));
 
                     u = hacerMove(row, col, newrow, newcol);
+                    if (jaque()==false) {
+                        System.out.println("Usted esta en jaque");
+                        break;
+                    }
+                    if (jaquemate()==true) {
+                        System.out.println("Partida terminada gano "+playername);
+                        y = false;
+                        break;
+                    }
                 }
 
             }
         }
+    }
+
+    public static boolean jaque() {
+        int kingRow = -1;
+        int kingCol = -1;
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Piece piece = (Piece) board[row][col];
+                if (piece instanceof King ) {
+                    kingRow = row;
+                    kingCol = col;
+                    break;
+                }
+            }
+        }
+
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Piece piece = (Piece) board[row][col];
+                if (piece != null && piece.isValidAttack(row, col, kingRow, kingCol, board)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean jaquemate() {
+        if (!jaque()) {
+            return false;
+        }
+
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Piece piece = (Piece) board[row][col];
+                if (piece instanceof King ) {
+                    for (int newRow = 0; newRow < 8; newRow++) {
+                        for (int newCol = 0; newCol < 8; newCol++) {
+                            if (piece.movimiento(newRow, newCol, board)) {
+
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Piece piece = (Piece) board[row][col];
+                if (piece != null ) {
+                    for (int newRow = 0; newRow < 8; newRow++) {
+                        for (int newCol = 0; newCol < 8; newCol++) {
+                            if (piece.movimiento(newRow, newCol, board)) {
+                                Piece capturedPiece = (Piece) board[newRow][newCol];
+                                board[newRow][newCol] = piece;
+                                board[row][col] = null;
+                                if (!jaque()) {
+                                    board[row][col] = piece;
+                                    board[newRow][newCol]=null;
+    
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public static boolean hacerMove(int x1, int y1, int x2, int y2) {
@@ -66,8 +147,11 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
             u = true;
         } else {
             if (!pieza.movimiento(x2, y2, board)) {
-                board[x2][y2] = pieza;
+                
+                    board[x2][y2] = pieza;
                 board[x1][y1] = null;
+                
+                
             } else {
                 System.out.println("Movimiento No valido");
                 u = true;
@@ -79,21 +163,21 @@ public class Lab4P2_JoedSosaOliverIraheta11 {
     public static int getNumber(char z) {
         int a = 0;
         switch (z) {
-            case 'A' ->
+            case 'A','a' ->
                 a = 0;
-            case 'B' ->
+            case 'B','b' ->
                 a = 1;
-            case 'C' ->
+            case 'C','c' ->
                 a = 2;
-            case 'D' ->
+            case 'D','d' ->
                 a = 3;
-            case 'E' ->
+            case 'E','e' ->
                 a = 4;
-            case 'F' ->
+            case 'F','f' ->
                 a = 5;
-            case 'G' ->
+            case 'G','g' ->
                 a = 6;
-            case 'H' ->
+            case 'H','h' ->
                 a = 7;
         }
         return a;

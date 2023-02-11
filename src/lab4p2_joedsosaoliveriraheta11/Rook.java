@@ -22,7 +22,6 @@ public class Rook extends Piece {
 
     public boolean isValidAttack(int row, int col, int newrow, int newcol, Object[][] board) {
         if (row == newrow || col == newcol) {
-            // Check if there are no pieces blocking the attack path
             int xMin = Math.min(row, newrow);
             int xMax = Math.max(row, newrow);
             int yMin = Math.min(col, newcol);
